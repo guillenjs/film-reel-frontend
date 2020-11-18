@@ -10,10 +10,11 @@ height: 80px;
 border: none;
 outline: 0;
 font-size: 50px;
-font-weight: lighter;
+
+color: grey;
 border-bottom solid 1px grey;
 margin-top: 30px;
-// background: black;
+// background: #404040;
 ::placeholder{
     color:#C8C8C8;
 }
