@@ -14,6 +14,7 @@ const StyledDiv = styled.div
   width: 100%;
   margin-top: 20%;
   `
+const  API_KEY = process.env.REACT_APP_FILM_REEL_API_KEY
 
 function App() {
   const[searchTerm, setSearchTerm] = useState('')
@@ -25,6 +26,12 @@ function App() {
     setSearchTerm(term)
   }
 
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=spiderman`)
+        .then(res => res.json())
+        .then(arr => console.log(arr))
+
+}, [])
 
   console.log(searchTerm.length)
 
