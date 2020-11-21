@@ -20,7 +20,6 @@ margin-top: 30px;
 }
 `
 
-const  API_KEY = process.env.REACT_APP_FILM_REEL_API_KEY
 
 function Search(props) {
 

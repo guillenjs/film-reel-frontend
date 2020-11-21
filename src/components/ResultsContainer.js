@@ -8,7 +8,7 @@ height: 100vh;
 width: 90%;
 margin-left: 5%;
 margin-top: 20px;
-border: solid 1px red;
+// border: solid 1px red;
 display: flex;
 flex-wrap: wrap;
 align-items: stretch ;
@@ -18,19 +18,26 @@ align-items: stretch ;
         transform: scale(1.2, 1.2);
 `
 
-function ResultsContainer() { 
 
+
+function ResultsContainer(props) { 
+
+  //fetch movie genres to compare to them to current ids of genres of movies
+
+    console.log(props.results)
+    const renderItems = () => {
+       if(props.results)
+       {
+        return props.results.map( movie => 
+        <ResultItems key={movie.id} movie={movie}/>)  
+       } 
+       
+    }
+   
     return( 
         <div>
             <StyledContainer>
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
-                <ResultItems />
+                {renderItems()}
             </StyledContainer>
         </div>
     )

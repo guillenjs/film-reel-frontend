@@ -42,9 +42,19 @@ function Header() {
         <div>
           <StyledHeader>
               <div>
-                  <img src="/filmreel.png" alt="film reel logo" className="film-text-logo"></img>
+                  <img src="/filmreel.png" 
+                        alt="film reel logo" 
+                        className="film-text-logo">
+                    </img>
                 </div>
-                <div className="second-div"><img src="/film-logo-small.png" className="film-logo-green"></img></div>
+
+                <div className="second-div">
+                    <img src="/film-logo-small.png" 
+                        className="film-logo-green" 
+                        alt="film reel logo">
+                    </img>
+                </div>
+                
             </StyledHeader>
         </div>
     )
