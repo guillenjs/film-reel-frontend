@@ -72,7 +72,7 @@ console.log(currentFilmClick)
               <img src="/filmreel-green.png" alt="filmreel green logo"></img>
           </StyledDiv>:
           <div className="container">
-          {showFilmView? <FilmView closeModal={closeModal}/>: ""}
+          {showFilmView? <FilmView closeModal={closeModal} currentFilmClick={currentFilmClick}/>: ""}
           <ResultsContainer results = {currentItems} handleClick = {handleClickedItem }/>
           </div>
       
