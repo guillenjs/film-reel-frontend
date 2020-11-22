@@ -28,20 +28,26 @@ const StyledDiv = styled.div
    height: 100%
    `
 
+const StyledTitle = styled.div
+   ` background-color: white;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   `
+
+  
+
 function ResultItems(props){
    const{title,poster_path} = props.movie 
    const poster = `https://image.tmdb.org/t/p/original/${poster_path}`
-
-    console.log(props.movie.title)
-    console.log(title,)
-
     
     return(
-            <StyledItems>
+        //onClick of item set show to true in APP and useCurrent object to render modal 
+            <StyledItems  onClick ={()=> props.handleClick(props.movie)}>
                 <StyledDiv><img src={poster} alt="poster for movie"></img></StyledDiv>
-                <div>
+                <StyledTitle>
                     {title}
-                </div>
+                </StyledTitle>
             </StyledItems>
     )
 }

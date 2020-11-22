@@ -15,7 +15,7 @@ align-items: stretch ;
     article:hover{
         // margin: -0px;
         // padding: 5px 5px 5px 5px;
-        transform: scale(1.2, 1.2);
+        transform: scale(1.3, 1.3);
 `
 
 
@@ -24,12 +24,11 @@ function ResultsContainer(props) {
 
   //fetch movie genres to compare to them to current ids of genres of movies
 
-    console.log(props.results)
     const renderItems = () => {
        if(props.results)
        {
         return props.results.map( movie => 
-        <ResultItems key={movie.id} movie={movie}/>)  
+        <ResultItems key={movie.id} movie={movie} handleClick={props.handleClick}/>)  
        } 
        
     }
