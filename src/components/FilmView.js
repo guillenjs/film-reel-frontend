@@ -21,20 +21,25 @@ const StyledContent = styled.div
     `
     border-radius: 10px;
     // background-color: #fefefe;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73));
     background-position:center;
     background-size: cover;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    height: 60%;
         StyledHeader:hover{
             font-weight: 900;
         }
+
     `
 const StyledHeader = styled.div
     `
-    text-align: right;
+   display: flex;
+   justify-content: space-between;
+   font-weight: bold;
+   font-size: 15px;
+   border-bottom: solid 1px;
     color: white;
         button{
             background: none;
@@ -48,15 +53,60 @@ const StyledHeader = styled.div
         }
        
     `
+ const StyledMovie = styled.div
+    `
+    display: flex;
+    img{
+        width: 25%;
+        display:flex;
+        margin-top: 5%;
+        padding: 10px;
+    }
+    div{
+        color: white;
+        padding: 30px;
+        text-shadow: 2px 2px #383838;
+        
+    }
+    `
+
+  const StyledDetails = styled.div
+    `
+    background-color: white;
+    margin-top: 10px;
+    border-top: solid red;
+    margin: -20px -20px -20px;
+    margin-top: 10px;
+    border-radius: 0 0 10px 10px;
+    padding: 25px;
+    opacity: 85%;
+    
+    `  
 function FilmView(props) {
     console.log(props.currentFilmClick)
-    const{backdrop_path} = props.currentFilmClick
+    const{title, backdrop_path, poster_path, release_date, overview, genre_ids} = props.currentFilmClick
+
+
     return (
         <StyledDiv>
-            <StyledContent style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path}")`}}>
+            <StyledContent style={backdrop_path? {backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://image.tmdb.org/t/p/original${backdrop_path}")`}: {backgroundColor: 'lightgrey'}}>
+
                 <StyledHeader>
+                    <p>{title}</p>
                     <button onClick={props.closeModal}>X</button>
                 </StyledHeader>
+                    
+                <StyledMovie>
+                    <img src={`https://image.tmdb.org/t/p/original${poster_path}`}></img>
+                    <div>
+                        <h2>{title}</h2>
+                        <p>{release_date} | {genre_ids} </p>
+                        <button>like</button><button>dislike</button>
+                    </div>
+                </StyledMovie>
+
+                <StyledDetails><b>Details:</b><p>{overview}</p></StyledDetails>
+                
             </StyledContent>
         </StyledDiv>
     )
