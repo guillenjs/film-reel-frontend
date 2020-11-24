@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-
 const StyledDiv = styled.div
     `
     display: block;
@@ -68,6 +67,17 @@ const StyledHeader = styled.div
         text-shadow: 2px 2px #383838;
         
     }
+    i{
+        border: solid 2px;
+        border-radius: 100%;
+        padding: 7px;
+    }
+    .fa.fa-thumbs-up:hover{
+        border: solid 2px green;
+    }
+    .fa.fa-thumbs-down:hover{
+        border: solid 2px red;
+    }
     `
 
   const StyledDetails = styled.div
@@ -79,7 +89,7 @@ const StyledHeader = styled.div
     margin-top: 10px;
     border-radius: 0 0 10px 10px;
     padding: 25px;
-    opacity: 85%;
+    opacity: 70%;
     
     `  
 function FilmView(props) {
@@ -101,7 +111,7 @@ function FilmView(props) {
                     <div>
                         <h2>{title}</h2>
                         <p>{release_date} | {genre_ids} </p>
-                        <button>like</button><button>dislike</button>
+                        82<i className="fa fa-thumbs-up"></i> 5<i className="fa fa-thumbs-down"></i>
                     </div>
                 </StyledMovie>
 

@@ -25,7 +25,7 @@ const StyledDiv = styled.div
    justify-content: end;
    background-color:#EDE1E1;
    width: 100%;
-   height: 100%
+   height: 100%;
    `
 
 const StyledTitle = styled.div
