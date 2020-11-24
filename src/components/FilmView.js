@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+
 const StyledDiv = styled.div
     `
     display: block;
@@ -19,7 +21,6 @@ const StyledContent = styled.div
     `
     border-radius: 10px;
     // background-color: #fefefe;
-    background-image: url("https://image.tmdb.org/t/p/original/aUVCJ0HkcJIBrTJYPnTXta8h9Co.jpg");
     background-position:center;
     background-size: cover;
     margin: auto;
@@ -48,9 +49,11 @@ const StyledHeader = styled.div
        
     `
 function FilmView(props) {
+    console.log(props.currentFilmClick)
+    const{backdrop_path} = props.currentFilmClick
     return (
         <StyledDiv>
-            <StyledContent>
+            <StyledContent style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path}")`}}>
                 <StyledHeader>
                     <button onClick={props.closeModal}>X</button>
                 </StyledHeader>
