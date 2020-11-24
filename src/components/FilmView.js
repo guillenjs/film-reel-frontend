@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
+
 
 
 const StyledDiv = styled.div
@@ -24,6 +25,7 @@ const StyledContent = styled.div
     background-position:center;
     background-size: cover;
     margin: auto;
+    margin-bottom: 200px;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -71,12 +73,17 @@ const StyledHeader = styled.div
         border: solid 2px;
         border-radius: 100%;
         padding: 7px;
+        margin-right: 15px;
+        margin-left: 5px;
     }
     .fa.fa-thumbs-up:hover{
-        border: solid 2px green;
+        border: solid 2px #90EE90;
+        padding: 8px;
+       
     }
     .fa.fa-thumbs-down:hover{
-        border: solid 2px red;
+        border: solid 2px #FF6347;
+        padding: 8px;
     }
     `
 
@@ -92,14 +99,36 @@ const StyledHeader = styled.div
     opacity: 70%;
     
     `  
+const  API_KEY = process.env.REACT_APP_FILM_REEL_API_KEY
+
+
+
 function FilmView(props) {
-    console.log(props.currentFilmClick)
-    const{title, backdrop_path, poster_path, release_date, overview, genre_ids} = props.currentFilmClick
+    const [filmInfo, setFilmInfo] = useState({})
+    
+    const{title, backdrop_path, poster_path, release_date, overview, genre_ids, id} = props.currentFilmClick
 
+    //everytime object is clicked on list it will render all info will be fetched from API]
 
+    const fetchInfo = () => {
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+        .then(res => res.json())
+        .then(film => {
+            setFilmInfo(film)
+        })
+    }
+
+    useEffect(() => {
+        fetchInfo()
+    },[filmInfo.id]
+    )
+
+    console.log(filmInfo)
     return (
         <StyledDiv>
-            <StyledContent style={backdrop_path? {backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://image.tmdb.org/t/p/original${backdrop_path}")`}: {backgroundColor: 'lightgrey'}}>
+            <StyledContent style={backdrop_path? 
+                            {backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://image.tmdb.org/t/p/original${backdrop_path}")`}: 
+                            {backgroundColor: 'lightgrey'}}>
 
                 <StyledHeader>
                     <p>{title}</p>
@@ -125,14 +154,3 @@ function FilmView(props) {
 export default FilmView
 
 
-// display: none; /* Hidden by default */
-// position: fixed; /* Stay in place */
-// z-index: 1; /* Sit on top */
-// padding-top: 100px; /* Location of the box */
-// left: 0;
-// top: 0;
-// width: 100%; /* Full width */
-// height: 100%; /* Full height */
-// overflow: auto; /* Enable scroll if needed */
-// background-color: rgb(0,0,0); /* Fallback color */
-// background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
