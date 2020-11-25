@@ -105,16 +105,23 @@ const  API_KEY = process.env.REACT_APP_FILM_REEL_API_KEY
 
 function FilmView(props) {
     const [filmInfo, setFilmInfo] = useState({})
-    
+    const [allGenres, setGenres] = useState({})
+    // const {title} = filmInfo
+
+    // console.log(title)
     const{title, backdrop_path, poster_path, release_date, overview, genre_ids, id} = props.currentFilmClick
 
     //everytime object is clicked on list it will render all info will be fetched from API]
 
     const fetchInfo = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/movie/${props.currentFilmClick.id}?api_key=${API_KEY}&language=en-US`)
         .then(res => res.json())
         .then(film => {
             setFilmInfo(film)
+            if(film.genres.length > 1)
+                {
+                    setGenres(film.genres[0])
+                }
         })
     }
 
@@ -123,28 +130,34 @@ function FilmView(props) {
     },[filmInfo.id]
     )
 
-    console.log(filmInfo)
+console.log(filmInfo)
+ 
     return (
         <StyledDiv>
-            <StyledContent style={backdrop_path? 
+            <StyledContent
+             style={filmInfo.backdrop_path? 
                             {backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("https://image.tmdb.org/t/p/original${backdrop_path}")`}: 
-                            {backgroundColor: 'lightgrey'}}>
+                            {backgroundColor: 'lightgrey'}}
+                            >
 
                 <StyledHeader>
-                    <p>{title}</p>
+                    <p>{filmInfo.title}</p>
                     <button onClick={props.closeModal}>X</button>
                 </StyledHeader>
                     
                 <StyledMovie>
-                    <img src={`https://image.tmdb.org/t/p/original${poster_path}`}></img>
+                    <img src={`https://image.tmdb.org/t/p/original${filmInfo.poster_path}`}></img>
                     <div>
-                        <h2>{title}</h2>
-                        <p>{release_date} | {genre_ids} </p>
+                        <h2>{filmInfo.title}</h2>
+                            <p><h4>{filmInfo.release_date}</h4></p>
+                            <p><h4>{Object.keys(allGenres).length !== 0? `${allGenres.name}`: ''}</h4></p>
+                            <p><h4>{filmInfo.runtime} min</h4></p>
+                            <p>{filmInfo.tagline}</p>
                         82<i className="fa fa-thumbs-up"></i> 5<i className="fa fa-thumbs-down"></i>
                     </div>
                 </StyledMovie>
 
-                <StyledDetails><b>Details:</b><p>{overview}</p></StyledDetails>
+                <StyledDetails><b>Details:</b><p>{filmInfo.overview}</p></StyledDetails>
                 
             </StyledContent>
         </StyledDiv>
