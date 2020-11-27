@@ -130,6 +130,12 @@ function FilmView(props) {
     },[filmInfo.id]
     )
 
+    
+
+    // do fetch for backend with current film info to rails api
+    //if found then set state for like and dislikes 
+    // if not found then render the likes and dislikes as 0 
+
 console.log(filmInfo)
  
     return (
