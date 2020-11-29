@@ -6,12 +6,12 @@ const StyledItems = styled.article
 `
 flex: 0 0 190px;
 margin: 3px;
-
 border-radius:10px;  
 display: flex;
 flex-direction:column;
 align-items: center;
 justify-content:center;
+background-color: white;
    img{
        max-height: 250px;
        margin-top:-10;

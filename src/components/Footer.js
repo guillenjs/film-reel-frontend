@@ -19,7 +19,7 @@ const StyledFooter = styled.div
             opacity: 0.3;
         }
         img{
-            width:10%;
+            width:80px;
             margin-left:10px;
         }
         div:hover{
@@ -35,7 +35,7 @@ function Footer() {
     return(
         <StyledFooter>
            <div>This product uses the TMDb API but is not endorsed or certified by TMDb.
-               <img src="blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"></img>
+               <img src="blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="tmdb api logo"></img>
            </div>
         </StyledFooter>
     )
