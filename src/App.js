@@ -6,6 +6,7 @@ import Header from './components/Header.js'
 import Search from './components/Search.js'
 import ResultsContainer from './components/ResultsContainer'
 import FilmView from './components/FilmView'
+import Footer from './components/Footer.js'
 
 const StyledDiv = styled.div
   `
@@ -28,7 +29,6 @@ function App() {
 
 //fetches whatever is the current term from api  
   const fetchSearchTerm = (term) => {
-    console.log(term)
     if(term.length  > 1)
     {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${term}`)
@@ -61,8 +61,6 @@ function App() {
   }
 
 
-console.log(showFilmView)
-console.log(currentFilmClick)
   return (
     <div className="App">
       <Header />
@@ -71,12 +69,12 @@ console.log(currentFilmClick)
           <StyledDiv >
               <img src="/filmreel-green.png" alt="filmreel green logo"></img>
           </StyledDiv>:
-          <div className="container">
+          <>
           {showFilmView? <FilmView closeModal={closeModal} currentFilmClick={currentFilmClick}/>: ""}
           <ResultsContainer results = {currentItems} handleClick = {handleClickedItem }/>
-          </div>
-      
+          </>
         }
+      <Footer />
     </div>
   );
 }

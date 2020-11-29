@@ -4,28 +4,31 @@ import styled from 'styled-components'
 
 const StyledItems = styled.article
 `
-// border: 1px solid #ccc;
-flex: 0 0 250px;
+flex: 0 0 190px;
 margin: 3px;
+
+border-radius:10px;  
 display: flex;
 flex-direction:column;
 align-items: center;
 justify-content:center;
    img{
-    //    max-width:150px;  
        max-height: 250px;
        margin-top:-10;
        margin-botom:-10px;
+       border-radius:10px;  
    }
 `
 const StyledDiv = styled.div
    `
-   display:flex
-   align-items: end;
-   justify-content: end;
-   background-color:#EDE1E1;
+   display:flex;
+   align-items: center;
+   border-radius: 10px 10px 0 0;
+   justify-content: center;
+   background-color: white;
    width: 100%;
-   height: 100%;
+   height: 100%px;
+
    `
 
 const StyledTitle = styled.div
@@ -33,6 +36,8 @@ const StyledTitle = styled.div
    width: 100%;
    height: 100%;
    text-align: center;
+   border-radius: 0 0 10px 10px;  
+   font-size: 15px;
    `
 
   
@@ -44,10 +49,13 @@ function ResultItems(props){
     return(
         //onClick of item set show to true in APP and useCurrent object to render modal 
             <StyledItems  onClick ={()=> props.handleClick(props.movie)}>
-                <StyledDiv><img src={poster} alt="poster for movie"></img></StyledDiv>
+                
+                <StyledDiv ><img src={poster} alt="poster for movie"></img></StyledDiv>
+
                 <StyledTitle>
                     {title}
                 </StyledTitle>
+                
             </StyledItems>
     )
 }

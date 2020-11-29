@@ -78,12 +78,14 @@ const StyledHeader = styled.div
     }
     .fa.fa-thumbs-up:hover{
         border: solid 2px #90EE90;
-        padding: 8px;
+        transition-duration: 0.5s;
+        transform: scale(1.1, 1.1);
        
     }
     .fa.fa-thumbs-down:hover{
         border: solid 2px #FF6347;
-        padding: 8px;
+        transition-duration: 0.5s;
+        transform: scale(1.1, 1.1);
     }
     `
 
@@ -108,6 +110,7 @@ function FilmView(props) {
     const [allGenres, setGenres] = useState({})
     const [likes, setLikes] = useState(0)
     const [disLikes, setDisLikes] = useState(0)
+
    
     const fetchInfo = () => {
         //check if like or dislike exists
@@ -166,9 +169,6 @@ function FilmView(props) {
         .then(obj => setDisLikes(obj.dislikes))
     }
 
-
-console.log(filmInfo)
- console.log(likes)
     return (
         <StyledDiv>
             <StyledContent
