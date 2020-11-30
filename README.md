@@ -1,6 +1,6 @@
 # Filmreel
 
-Filmreel is an application tha allows you to search for movies, view their decriptions, and allow you to like them or dislike them. 
+Filmreel is an application tha allows you to search for movies, view their descriptions, and will allow you to like them or dislike them. 
 
 Live demo website: [https://film-reel.netlify.app/](https://film-reel.netlify.app/)
 
@@ -18,6 +18,7 @@ Live demo website: [https://film-reel.netlify.app/](https://film-reel.netlify.ap
  In order to run this application you will need [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) installed globally on your machine.
 
 1. Install and run [rails backend](https://github.com/guillenjs/film-reel-backend)
+ (this application will run without the backend repo installed but it will lack some functionality)
 2. Clone this repo and cd into file
 3. Install dependencies
     ###### `$ npm install`
@@ -37,4 +38,4 @@ Live demo website: [https://film-reel.netlify.app/](https://film-reel.netlify.ap
 
 ## Tools
  - [TMDB api](https://developers.themoviedb.org/3/getting-started/introductiont)
- - [Styled components](https://styled-components.com/)
+ - [Styled Components](https://styled-components.com/)
