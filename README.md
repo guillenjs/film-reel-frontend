@@ -2,7 +2,7 @@
 
 Filmreel is an application tha allows you to search for movies, view their decriptions, and allow you to like them or dislike them. 
 
-Live demo website: [filmreel](https://reactrouter.com/web/guides/quick-start)
+Live demo website: [https://film-reel.netlify.app/](https://film-reel.netlify.app/)
 
 ![Image Home Page](public/filmreel1.png)
 
