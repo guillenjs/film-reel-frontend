@@ -15,9 +15,9 @@ const StyledContainer = styled.div
         article:hover{
             transition-duration: 0.5s;
             transform: scale(1.3, 1.3);
-            flex: 0 0 250px;
+            flex: 0 0 200px;
             // border: solid 1px  #E8E8E8;
-            padding: 10px 0 0 10px;
+            padding: 10px 10px 10px 10px;
         
 `
 

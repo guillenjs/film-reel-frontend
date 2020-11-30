@@ -27,7 +27,7 @@ border-bottom: solid 1px #E8E8E8;
       margin-right: 2%;
       {
           .film-logo-green{
-              height: 80%;
+            width:40px;
               margin-top: 5px;
           }
       }

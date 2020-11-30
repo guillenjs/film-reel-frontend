@@ -28,7 +28,7 @@ const StyledContent = styled.div
     margin-bottom: 200px;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
         StyledHeader:hover{
             font-weight: 900;
         }
@@ -48,20 +48,28 @@ const StyledHeader = styled.div
             color:white;
             outline: 0;
             font-weight: 900;
+            // height: 30px;
+            width: 50px;
+            height: auto;
+            transition: 0.5s ease-in-out;
         }
         button:hover{
-            font-size: 15px;
+            
+            color: salmon;
+            transform: scale(2.0, 2.0);
+            text-shadow: 0.5px 0.5px white;
         }
        
     `
  const StyledMovie = styled.div
     `
     display: flex;
+    flex-wrap: wrap;
     img{
-        width: 25%;
-        display:flex;
+        width: 200px;
         margin-top: 5%;
         padding: 10px;
+        max-height: 300px;
     }
     div{
         color: white;
@@ -75,16 +83,15 @@ const StyledHeader = styled.div
         padding: 7px;
         margin-right: 15px;
         margin-left: 5px;
+        transition: 0.5s ease-in-out;
     }
     .fa.fa-thumbs-up:hover{
         border: solid 2px #90EE90;
-        transition-duration: 0.5s;
         transform: scale(1.1, 1.1);
        
     }
     .fa.fa-thumbs-down:hover{
         border: solid 2px #FF6347;
-        transition-duration: 0.5s;
         transform: scale(1.1, 1.1);
     }
     `
@@ -111,7 +118,9 @@ function FilmView(props) {
     const [likes, setLikes] = useState(0)
     const [disLikes, setDisLikes] = useState(0)
 
-   
+
+
+    
     const fetchInfo = () => {
         //check if like or dislike exists
         fetch(`http://localhost:3000/movies/${filmInfo.id}`)
@@ -136,6 +145,10 @@ function FilmView(props) {
                     setGenres(film.genres[0])
                 }
         })
+
+       
+    //    document.addEventListener("mousedown", closeModal);
+
     }
 
 
@@ -143,6 +156,7 @@ function FilmView(props) {
         fetchInfo()
     },[filmInfo.id]
     )
+    
 
     //add like and dislike to rails api
     const handleLike = () => {
@@ -169,34 +183,39 @@ function FilmView(props) {
         .then(obj => setDisLikes(obj.dislikes))
     }
 
+
+
     return (
-        <StyledDiv>
-            <StyledContent
+        <StyledDiv id='background'>
+            <StyledContent 
+           
              style={filmInfo.backdrop_path? 
                             {backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), 
                                                 url("https://image.tmdb.org/t/p/original${filmInfo.backdrop_path}")`}: 
                             {backgroundColor: 'lightgrey'}}
                             >
 
-                <StyledHeader>
-                    <p>{filmInfo.title}</p>
-                    <button onClick={props.closeModal}>X</button>
-                </StyledHeader>
+            <StyledHeader>
+                <p>{filmInfo.title}</p>
+                <button onClick={props.closeModal}>X</button>
+            </StyledHeader>
                     
-                <StyledMovie>
-                    <img src={`https://image.tmdb.org/t/p/original${filmInfo.poster_path}`} alt="poster"></img>
-                    <div>
-                        <h2>{filmInfo.title}</h2>
-                            <p><h4>{filmInfo.release_date}</h4></p>
-                            <p><h4>{Object.keys(allGenres).length !== 0? `${allGenres.name}`: ''}</h4></p>
-                            <p><h4>{filmInfo.runtime} min</h4></p>
-                            <p>{filmInfo.tagline}</p>
-                                {likes}<i className="fa fa-thumbs-up" onClick={handleLike}></i> 
-                                {disLikes}<i className="fa fa-thumbs-down" onClick={handleDisLike}></i>
-                    </div>
-                </StyledMovie>
+            <StyledMovie>
+                <img src={`https://image.tmdb.org/t/p/original${filmInfo.poster_path}`} alt="poster"></img>
+                <div>
+                    <h2>{filmInfo.title}</h2>
+                        <p><h4>Released: {filmInfo.release_date}</h4></p>
+                        <p><h4>{Object.keys(allGenres).length !== 0? `${allGenres.name}`: ''}</h4></p>
+                        <p><h4> {filmInfo.runtime} min</h4></p>
+                        <p>{filmInfo.tagline}</p>
+                            {likes}<i className="fa fa-thumbs-up" onClick={handleLike}></i> 
+                            {disLikes}<i className="fa fa-thumbs-down" onClick={handleDisLike}></i>
+                </div>
+            </StyledMovie>
 
-                <StyledDetails><b>Details:</b><p>{filmInfo.overview}</p></StyledDetails>
+            <StyledDetails>
+                <b>Details:</b><p>{filmInfo.overview}</p>
+            </StyledDetails>
                 
             </StyledContent>
         </StyledDiv>
