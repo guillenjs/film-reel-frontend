@@ -1,25 +1,30 @@
 # Filmreel
 
-Filmreel is an application that allows you to search movies, view their information, and allow you to like them or dislike them.
+Filmreel is an application tha allows you to search for movies, view their decriptions, and allow you to like them or dislike them. 
 
 Live demo website: [filmreel](https://reactrouter.com/web/guides/quick-start)
 
 ![Image Home Page](public/filmreel1.png)
 
+## Examples
+
+![film reel gif](public/filmreelvideo.gif)
+![Image Home Page](public/filmreel2.png)
+![Image Home Page](public/filmreel3.png)
+
+
 ## Installation
 
-1. Clone repo 
-2. ###### `$ npm install`
-     (need to have Node.js install already )
-3. Clone backend repo https://github.com/guillenjs/chalkboard-backend
-4. run rails server 
-    ###### `$ rails s`
-5. run front end repo 
+ In order to run this application you will need [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) installed globally on your machine.
+
+1. Install and run [rails backend](https://github.com/guillenjs/film-reel-backend)
+2. Clone this repo and cd into file
+3. Install dependencies
+    ###### `$ npm install`
+4. Start server
     ###### `$ npm start`
-
-## Using application
-
-    Once installed and running you can create your own account to login or use accounts that are available within the seed file.
+5. Visit application at
+    ###### `localhost:3001`
 
 
 ## Tech Stack    
@@ -31,10 +36,5 @@ Live demo website: [filmreel](https://reactrouter.com/web/guides/quick-start)
 
 
 ## Tools
- - [React Router](https://reactrouter.com/web/guides/quick-start)
- - [ActiveModelSerializers](https://github.com/rails-api/active_model_serializers)
- - [bcrypt-ruby](https://github.com/codahale/bcrypt-ruby)
- - [JWT](https://github.com/jwt/ruby-jwt)
- - [FullCalender](https://github.com/fullcalendar/fullcalendar)
- - [MetMuseum - openaccess](https://github.com/metmuseum/openaccess)
- - [Hover.css](https://github.com/IanLunn/Hover)
+ - [TMDB api](https://developers.themoviedb.org/3/getting-started/introductiont)
+ - [Styled components](https://styled-components.com/)
